@@ -9,6 +9,10 @@ app = Flask(__name__)
 def main_page():
 	return "Main Page"
 
+@app.route('/embedded')
+def embedded():
+	return render_template('embedded.html')
+
 
 @app.route('/compvis')
 def compvis():
