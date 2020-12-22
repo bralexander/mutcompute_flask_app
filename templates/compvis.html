@@ -10,6 +10,7 @@
 </style>
 <body>
   <script src="../static/ngl.js"></script>
+  {% block javascript %}
   <script>
     // Datasources
     // NGL.DatasourceRegistry.add(
@@ -107,9 +108,10 @@
       return gradientArray
     }
 
+
     Promise.all([
-      stage.loadFile('data://mutcompute/6ij6.pdb'),
-      NGL.autoLoad('data://mutcompute/6ij6.csv', {
+      stage.loadFile('data://mutcompute/' + '{{ pdb_file }}'),
+      NGL.autoLoad('data://mutcompute/' + '{{ pdb_csv }}', {
         ext: 'csv',
         delimiter: ' ',
         comment: '#',
@@ -250,6 +252,7 @@
     })
       });
   </script>
+  {% endblock javascript %}
   <div id="viewport" style="widows: 100%; height:100%;"></div>
 </body>
 </html>
